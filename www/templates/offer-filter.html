@@ -31,11 +31,11 @@
                     <option ng-repeat="(key, city) in form.cities" ng-selected="(form.city == city.id)" ng-value="{{city.id}}">{{city.name}}</option>
                 </select>
             </div>-->
-            <div class="padding buttons filter-buttons">
-                <button class="button button-royal filter-search" ng-click="menu()">
-                    <i class="icon ion-gear-b"></i>
+            <div class="buttons filter-buttons">
+                <button class="button button-royal filter-search button-large" ng-click="menu()">
+                    <i class="icon ion-gear-a"></i>
                 </button>
-                <button class="button button-green filter-search pull-right" ng-click="search()">POKAŻ</button>
+                <button class="button button-green filter-search pull-right button-large" ng-click="search()">POKAŻ</button>
             </div>
             <img class="filter-search-bg" src="img/filter-search-bg.png"/>
         </div>

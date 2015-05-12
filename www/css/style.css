@@ -816,6 +816,8 @@ button.filter-search {
 }
 
 .filter-buttons {
+    width: 90%;
+    margin: 15px auto 0px;
     position: relative;
 }
  
