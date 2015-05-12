@@ -1,0 +1,19 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-positive">
+    <h1 class="title">Wybierz branżę</h1>
+  </ion-header-bar>
+<ion-header-bar class="bar-subheader" align-text="center">
+  <div class="buttons">
+    <button ng-if="form.checked.crafts > 0" class="button button-assertive padding icon ion-close-circled" ng-click="setAll($event, 'crafts', false)">Odznacz wszystkie</button>
+    <button ng-if="form.checked.crafts === 0" class="button button-balanced padding icon ion-checkmark-circled" ng-click="setAll($event, 'crafts', true)">Zaznacz wszystkie</button>
+  </div>
+      <h1 class="title"></h1>
+    <div class="buttons">
+        <button class="button button-positive icon ion-checkmark-round" ng-click="closeModal($event, 'craft-choose')"> Ok</button>
+    </div>
+</ion-header-bar>
+  <ion-content
+      overflow-scroll="true">
+    <ion-checkbox ng-repeat="(key, craft) in form.crafts" ng-model="craft.checked" ng-value="{{key}}" ng-change="onChange('crafts', key)">{{craft.name}}</ion-checkbox>
+  </ion-content>
+</ion-modal-view>

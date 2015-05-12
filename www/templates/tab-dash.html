@@ -1,0 +1,33 @@
+<ion-view view-title="Aktualności">
+  <ion-content class="padding">
+    <div class="list card">
+      <div class="item item-divider item-icon item-icon-left positive-bg light">
+          <i class="icon ion-loop"></i>
+          Aktualizacje
+      </div>
+      <div class="item item-body">
+        <div ng-if="updateInfo.count === 0">
+            <div><em class="positive icon ion-happy-outline"></em> Wszystkie oferty są aktualne. Możesz teraz przeglądać najnowsze oferty.</div>
+            <p>Data ostatniej aktualizacji: <em class="label label-primary">{{getLastUpdated()}}</em></p>
+        </div>
+        <div ng-if="updateInfo.count === -1">
+            <div>
+                <i>Sprawdź, czy dostępne są nowe aktualizacje danych.</i>
+            </div>
+            <p>Data ostatniej aktualizacji: <em class="label label-primary">{{getLastUpdated()}}</em></p>
+            <p ng-if="needUpdate()" class="item item-assertive">Wymagana jest aktualizacja w celu poprawnego pokazywania ofert.</p>
+            <p>
+                <button ng-click="checkForUpdate()" class="button button-calm icon ion-refresh"> Sprawdź aktualizacje</button>
+            </p>
+        </div>
+        <div ng-if="updateInfo.count > 0">
+            <div class="royal">Dostępne są nowe aktualizacje danych.</div>
+            <p>Data aktualizacji: <em class="label label-primary">{{updateInfo.datetime}}</em></p>
+            <p>Nowych aktualizacji: <em class="label label-primary">{{updateInfo.count}}</em></p>
+            <p>Priorytet aktualizacji: <em class="label label-{{updateInfo.priorityColor}}">{{updateInfo.priorityName}}</em></p>
+            <button ng-click="doUpdate()" class="button button-royal icon ion-archive"> Przeprowadź aktualizację</button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

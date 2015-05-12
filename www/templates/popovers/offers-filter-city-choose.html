@@ -1,0 +1,12 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-balanced">
+    <h1 class="title">Wybierz miasto</h1>
+  </ion-header-bar>
+  <ion-content
+      overflow-scroll="true">
+      <div class="list">
+        <ion-radio ng-model="$parent.form.city" ng-selected="$parent.form.city === 0" ng-value="0" ng-change="closeModal($event, 'city-choose')">Wszystkie miasta</ion-radio>
+        <ion-radio ng-repeat="(key, city) in $parent.form.cities" ng-selected="$parent.form.city == $parent.form.city" ng-model="$parent.form.city" ng-value="{{city.id}}" ng-change="closeModal($event, 'city-choose')">{{city.name}}</ion-radio>
+      </div>
+  </ion-content>
+</ion-modal-view>

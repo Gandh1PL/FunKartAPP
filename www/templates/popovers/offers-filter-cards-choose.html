@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar class="bar-balanced">
+    <h1 class="title">Wybierz karty</h1>
+  </ion-header-bar>
+<ion-header-bar class="bar-subheader" align-text="center">
+  <div class="buttons">
+    <button ng-if="form.checked.cards" class="button button-assertive padding icon ion-close-circled" ng-click="setAll($event, 'cards', false)">Odznacz wszystkie</button>
+    <button ng-if="form.checked.cards === 0" class="button button-balanced padding icon ion-checkmark-circled" ng-click="setAll($event, 'cards', true)">Zaznacz wszystkie</button>
+  </div>
+      <h1 class="title"></h1>
+    <div class="buttons">
+        <button class="button button-positive icon ion-checkmark-round" ng-click="closeModal($event, 'cards-choose')"> Ok</button>
+    </div>
+</ion-header-bar>
+  <ion-content
+      overflow-scroll="true">
+      <ion-checkbox ng-repeat="(key, card) in form.cards" ng-model="card.checked" ng-value="{{key}}" ng-change="onChange('cards', key)">
+          <span class="label label-{{card.color}}">{{card.name}}</span>
+      </ion-checkbox>
+  </ion-content>
+</ion-modal-view>

@@ -1,0 +1,28 @@
+<ion-view view-title="Ustawienia">
+  <ion-content>
+    <ion-list>
+        <div class="item item-divider">
+          Aktualizacje
+        </div>
+<!--        <ion-checkbox class="checkbox-balance item item-text-wrap" ng-model="settings.automaticUpdateCheck" ng-change="onChange()">
+            <h2>Sprawdzanie aktualizacji</h2>
+            <p>Sprawdzaj przy uruchomieniu, czy dostępne są aktualizacje danych (nowe oferty itp).</p>
+        </ion-checkbox>-->
+        <ion-item ng-click="update()" class="item-text-wrap">
+            <h2>Wymuś aktualizację</h2>
+            <p>Pobierz aktualne dane, w tym listę ofert, informacje o kartach itp.</p>
+        </ion-item>
+        <ion-item class="item item-text-wrap" ng-click="deleteFiles()">
+            <h2>Usuń dane</h2>
+            <p>Usuń wszystkie dane zapisane przez aplikację.</p>
+        </ion-item>
+        <div class="item item-divider">
+          Inne
+        </div>
+        <ion-item class="item item-text-wrap" ng-click="about()">
+            <h2>O aplikacji</h2>
+            <p>Wyświetl informacje o tej aplikacji.</p>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

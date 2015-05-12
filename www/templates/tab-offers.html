@@ -1,0 +1,46 @@
+<ion-view view-title="Oferty"  hide-nav-bar="true">
+    <ion-content overflow-scroll="true" class="tab-offers">
+        <div class="offers offers-temp">
+            <h4 class="offers-title">OFERTY CZASOWE</h4>
+            <div class="rowx">
+                <a class="col-xs-6" ng-repeat="(key, offer) in offersVisible.temp" ng-href="#/tab/offers/{{offer.id}}">
+                    <img ng-src="{{offer.path}}"/>
+                </a>
+                <div class="clearfix"></div>
+            </div>
+            <h4 ng-if="offersVisible.temp.length === 0" class="offers-title">Brak ofert</h4>
+        </div>
+        <div class="offers offers-perm">
+            <h4 class="offers-title">STAŁE OFERTY</h4>
+            <div class="rowx">
+                <a class="col-xs-6" ng-repeat="(key, offer) in offersVisible.perm" ng-href="#/tab/offers/{{offer.id}}">
+                    <img ng-src="{{offer.path}}"/>
+                </a>
+            </div>
+            <h4 ng-if="offersVisible.perm.length === 0" class="offers-title">Brak ofert</h4>
+        </div>
+<!--        <ion-list
+            show-delete="shouldShowDelete">
+
+            <div class="row" ng-if="!offersLoaded && dataLoader.needUpdate()">
+                <div class="col">
+                    <button class="button button-block button-positive button-outline">
+                        <ion-spinner class="spinner-loading-offers spinner-positive" icon="ripple"></ion-spinner>
+                        Wymagana aktualizacja
+                    </button>
+                </div>
+            </div>
+          <ion-item class="item-remove-animate item-text-wrap item-icon-right" ng-repeat="(key,offer) in offersVisible" type="item-text-wrap" href="#/tab/offers/{{offer.id}}">
+              <div class="item-image"><img ng-src="{{offer.path}}"/></div>
+            <h2>{{offer.name}}</h2>
+            <h3 class="dark">Miasto: {{dataLoader.getCityName(offer.city)}}</h3>
+            <h3 class="dark">Typ oferty: 
+                <span ng-if="offer.type === 0">Stała</span>
+                <span ng-if="offer.type === 1">Czasowa, ważna do {{getOfferEnd()}}</span>
+            </h3>
+            <span ng-repeat="(i,card) in offer.cards" ng-bind-html="dataLoader.getCardNameById(card, true)"></span>
+            <i class="icon ion-chevron-right icon-accessory"></i>
+          </ion-item>
+        </ion-list>-->
+    </ion-content>
+</ion-view>

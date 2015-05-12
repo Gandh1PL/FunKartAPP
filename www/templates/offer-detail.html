@@ -1,0 +1,47 @@
+<ion-view view-title="{{offer.name}}">
+    <ion-content class="padding">
+        <div class="table">
+            <div class="item-image"><img src="{{offer.path}}"/></div>
+            <div class="rowx">
+                <div class="col-xs-6">Nazwa oferty</div>
+                <div class="col-xs-6 dark">{{offer.name}}</div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="rowx">
+                <div class="col-xs-6">Miasto</div>
+                <div class="col-xs-6 dark">{{getCityName(offer.city)}}</div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="rowx">
+                <div class="col-xs-6">Typ oferty </div>
+                <div class="col-xs-6 dark">
+                    <span ng-if="offer.type === 0">Stała</span>
+                    <span ng-if="offer.type === 1">Czasowa, ważna do {{getOfferEnd()}}</span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="rowx">
+                <div class="col-xs-6">Dla kart</div>
+                <div class="col-xs-6">
+                    <span ng-repeat="(i,card) in offer.cards">
+                        <span ng-bind-html="getCardName(card)"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div>
+                <div>Opis oferty</div>
+                <div class="dark" ng-bind-html="offer.description"></div>
+            </div>
+            <div class="rowx">
+                <div class="col-xs-6">Branże</div>
+                <div class="col-xs-6">
+                    <span ng-repeat="(i,craft) in offer.crafts">
+                        <span class="label label-block label-primary" ng-bind-html="getCraftName(craft)"></span>
+                    </span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </ion-content>
+</ion-view>

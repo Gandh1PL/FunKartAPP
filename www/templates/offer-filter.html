@@ -1,0 +1,98 @@
+<ion-view view-title="Szukaj ofert" hide-nav-bar="true">
+
+    <ion-content>
+        <div ng-if="needUpdate">
+            <div class="card">
+                <div class="item item-divider item-dark">Potrzebna aktualizacja</div>
+                <div class="item item-text-wrap">
+                    <p>Wygląda na to, że jest to pierwsze uruchomienie aplikacji. Czy chcesz pobrać aktualną listę zniżek i inne dane? Ten krok jest wymagany w celu poprawnego działania aplikacji.</p>
+                    <button class="button button-assertive icon ion-archive" ng-click="doUpdate()"> Aktualizuj</button>
+                </div>
+            </div>
+        </div>
+        <div ng-if="!needUpdate">
+            <p class="filter-search-title">WYBIERZ KARTĘ</p>
+            <div class="rowx filter-cards">
+                <div ng-repeat="(key, card) in form.cards" class="col-xs-6" href="#">
+                    <img ng-click="onChangeCard(card.id)" ng-class="{'checked': (form.card === card.id)}" ng-src="{{getCardImage(card.image)}}"/>
+                </div>
+            </div>
+            <p class="filter-search-title">WYBÓR MIASTA</p>
+           <div ng-click="openModal($event, 'city-choose')" class="filter-select-city padding text-pulling item-select">
+                <h4 class="filter-city-name" ng-if="form.city">
+                    <b>{{getCityName(form.city)}}</b>
+                </h4>
+                <span ng-if="!form.city">&nbsp;</span>   <!-- placeholder for better padding -->
+            </div>
+<!--            <div class="item item-input item-select filter-select city padding text-pulling">
+                <div class="item-label">{{getCityName(form.city)}}</div>
+                <select ng-model="form.city">
+                    <option ng-value="0" ng-selected="(form.city == 0)">Wszystkie miasta</option>
+                    <option ng-repeat="(key, city) in form.cities" ng-selected="(form.city == city.id)" ng-value="{{city.id}}">{{city.name}}</option>
+                </select>
+            </div>-->
+            <div class="padding text-right">
+                <button class="button button-green filter-search" ng-click="search()">POKAŻ</button>
+            </div>
+            <img class="filter-search-bg" src="img/filter-search-bg.png"/>
+        </div>
+<!--        <div class="list list-inset">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Nazwa oferty</span>
+                <input type="text" ng-model="form.name" placeholder="Wystarczy część nazwy"/>
+            </label>
+            <ion-checkbox ng-model="form.searchDescr">Szukaj także w opisach</ion-checkbox>
+            <label ng-click="openModal($event, 'city-choose')" class="item item-input item-select">
+                <div class="input-label">
+                    Miasta:
+                </div>
+                <p ng-if="form.checked.cities === 0">
+                    Wszystkie miasta
+                </p>
+                <p ng-if="form.checked.cities === form.cities.length">
+                    <span class="label label-success label-block">Wszystkie miasta</span>
+                </p>
+                <p ng-if="form.checked.cities !== 0 && form.checked.cities !== form.cities.length">
+                    <span class="label label-success label-block" ng-repeat="(key, val) in form.cities | filter: (val.checked !== true)">
+                        {{val.name}} 
+                    </span>
+                </p>
+            </label>
+            <label ng-click="openModal($event, 'craft-choose')" class="item item-input item-select">
+                <div class="input-label">
+                    Branże:
+                </div>
+                <p ng-if="form.checked.crafts === 0">
+                    Wszystkie branże
+                </p>
+                <p ng-if="form.checked.crafts === form.crafts.length">
+                    <span class="label label-primary label-block">Wszystkie branże</span>
+                </p>
+                <p ng-if="form.checked.crafts !== 0 && form.checked.crafts !== form.crafts.length">
+                    <span class="label label-primary label-block" ng-repeat="(key, val) in form.crafts | filter: (val.checked !== true)">
+                        {{val.name}} 
+                    </span>
+                </p>
+            </label>
+            <label ng-click="openModal($event, 'cards-choose')" class="item item-input item-select">
+                <div class="input-label">
+                    Karty:
+                </div>
+                <p ng-if="form.checked.cards === 0">
+                    Wszystkie karty
+                </p>
+                <p ng-if="form.checked.cards === form.cards.length">
+                    <span class="label label-info label-block">Wszystkie karty</span>
+                </p>
+                <p ng-if="form.checked.cards !== 0 && form.checked.cards !== form.cards.length">
+                    <span ng-repeat="(key, val) in form.cards | filter: (val.checked !== true)">
+                        <span class="label label-block label-{{val.color}}">{{val.name}}</span>
+                    </span>
+                </p>
+            </label>
+            <button ng-click="search()" class="button button-block button-balanced icon ion-search"> Szukaj ofert</button>
+            <a ng-href="#/tab/offers" class="button button-block button-positive icon ion-arrow-return-left"> Anuluj</a>
+            <button ng-click="clearForm()" class="button button-block button-assertive icon ion-close-circled"> Wyczyść</button>
+        </div>-->
+    </ion-content>
+</ion-view>
