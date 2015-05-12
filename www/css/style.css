@@ -814,3 +814,14 @@ button.filter-search {
     font-size: 22px;
     border-color: #0a0;
 }
+
+.filter-buttons {
+    position: relative;
+}
+ 
+.filter-buttons .pull-right {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+}

@@ -56,7 +56,7 @@ angular.module('starter.controllers', [])
 
 }])
 
-.controller('OfferFilterCtrl', function($scope, $ionicModal, DataLoader, $rootScope, $location, FilterData) {
+.controller('OfferFilterCtrl', function($scope, $ionicModal, DataLoader, $rootScope, $location, FilterData, $ionicSideMenuDelegate) {
     // desctructor controllera taki jakby
     $scope.$on('$destroy', function() {
         for(var i in $scope.modals)
@@ -128,8 +128,8 @@ angular.module('starter.controllers', [])
         var id = parseInt(id);
         return (id === 0 ? 'Wszystkie miasta' : DataLoader.getCityName(id));
     };
-    $scope.test = function() {
-        alert($scope.form.city);
+    $scope.menu = function() {
+        $ionicSideMenuDelegate.toggleLeft();
     };
     
     $scope.clearForm = function() {
