@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="item item-divider item-dark">Potrzebna aktualizacja</div>
                 <div class="item item-text-wrap">
-                    <p>Wygląda na to, że jest to pierwsze uruchomienie aplikacji. Czy chcesz pobrać aktualną listę zniżek i inne dane? Ten krok jest wymagany w celu poprawnego działania aplikacji.</p>
+                    <p>Wygląda na to, że jest to pierwsze uruchomienie aplikacji lub zostały usunięte dane. Czy chcesz pobrać aktualną listę zniżek i inne dane? Ten krok jest wymagany w celu poprawnego działania aplikacji.</p>
                     <button class="button button-assertive icon ion-archive" ng-click="doUpdate()"> Aktualizuj</button>
                 </div>
             </div>
@@ -31,12 +31,22 @@
                     <option ng-repeat="(key, city) in form.cities" ng-selected="(form.city == city.id)" ng-value="{{city.id}}">{{city.name}}</option>
                 </select>
             </div>-->
-            <div class="buttons filter-buttons">
+            <div class="row filter-buttons">
+                <div class="col-25">
+                    <button class="button button-royal menu-button" ng-click="menu()">
+                        <i class="icon ion-gear-a"></i>
+                    </button>
+                </div>
+                <div class="col-75 text-right">
+                    <button class="button button-green filter-search" ng-click="search()">POKAŻ</button>
+                </div>
+            </div>
+<!--            <div class="buttons filter-buttons">
                 <button class="button button-royal filter-search button-large" ng-click="menu()">
                     <i class="icon ion-gear-a"></i>
                 </button>
                 <button class="button button-green filter-search pull-right button-large" ng-click="search()">POKAŻ</button>
-            </div>
+            </div>-->
             <img class="filter-search-bg" src="img/filter-search-bg.png"/>
         </div>
 <!--        <div class="list list-inset">

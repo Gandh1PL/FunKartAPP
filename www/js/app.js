@@ -108,3 +108,9 @@ if(!Date.now) {
     Date.now = function() { return (new Date()).getTime(); };
 }
 moment.locale('pl');
+
+APP_NAME = 'FUNkarta';
+APP_VERSION = '1.0.4';
+APP_VERSION_BETA = true;
+APP_WEBSITE = 'http://funkarta.pl';
+APP_COMPANY = 'StrychPolska';

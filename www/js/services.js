@@ -75,6 +75,7 @@ angular.module('starter.services', [])
             
             data.offersVisible[offer.type === 0 ? "perm" : "temp"].push(offer);
         }
+        $rootScope.$emit('update:done', data);
     });
     
     return {

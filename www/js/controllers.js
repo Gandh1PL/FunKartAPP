@@ -39,7 +39,8 @@ angular.module('starter.controllers', [])
     $scope.offerTotal = (offers ? offers.length : 0);
     
     var updateFunction = function(event, data) {
-        $scope.offers = $scope.offersVisible = DataLoader.getOffers();
+        $scope.offers = DataLoader.getOffers();
+        $scope.offersVisible = DataLoader.getVisibleOffers();
         $scope.offerTotal = $scope.offers.length;
         $scope.offersLoaded = (data.clear ? false : true);
         //$scope.$apply();         // wymuszamy odświeżenie widoku
@@ -174,7 +175,8 @@ angular.module('starter.controllers', [])
     $scope.update = function() {
         $ionicPopup.confirm({
             title: 'Czy jesteś pewien?',
-            template: 'Zostanie pobrana i zapisana dość spora ilość danych - czy chcesz kontynuować?'
+            template: 'Zostanie pobrana i zapisana dość spora ilość danych - czy chcesz kontynuować?',
+            cancelText: 'Anuluj'
         }).then(function(res) {
            if(!res)
               return;
@@ -188,7 +190,8 @@ angular.module('starter.controllers', [])
     $scope.deleteFiles = function() {
       $ionicPopup.confirm({
           title: 'Czy jesteś pewien?',
-          template: 'Zostaną usunięte wszystkie oferty i inne dane. Aplikacja do działania będzie potrzebowała ponownej aktualizacji. Czy chcesz kontynuować?'
+          template: 'Zostaną usunięte wszystkie oferty i inne dane. Aplikacja do działania będzie potrzebowała ponownej aktualizacji. Czy chcesz kontynuować?',
+            cancelText: 'Anuluj'
       }).then(function(res) {
             if(!res)
                 return;
@@ -203,8 +206,11 @@ angular.module('starter.controllers', [])
     };
       $scope.about = function() {
           $ionicPopup.alert({
-              title: "FUNkarta",
-              template: "StrychPolska 2015<br/>Wersja: 1.0.3 (beta)<br/><br/>Wersja rozwojowa. Wszelkie błędy prosimy zgłaszać na naszej stronie.<br/>www.funkarta.pl"
+              title: APP_NAME,
+              template: APP_COMPANY + " &copy; " + moment().year() + "<br/>" +
+                      "Wersja " + APP_VERSION + (APP_VERSION_BETA ? " (beta)" : "") + "<br/>" +
+                      (APP_VERSION_BETA ? "<br/>Wersja rozwojowa. Wszelkie błędy prosimy zgłaszać na naszej stronie." : "") + "<br/>" +
+                      APP_WEBSITE
           });
       };
 });

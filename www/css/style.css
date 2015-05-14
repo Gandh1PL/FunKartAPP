@@ -86,7 +86,7 @@ div.table > div > div:first-child {
 }
 button.filter-search {
     background-color: #0f0;
-    padding: 5px 45px;
+    padding: 0px 40px;
     letter-spacing: 2px;
     font-weight:bold;
 }
@@ -778,12 +778,6 @@ button.filter-search {
 .offers img {
     border-radius: 10px;
 }
-.offers-temp {
-    background-color: #0f0;
-}
-.offers-perm {
-    background-color: #000;
-}
 .offers-title {
     font-family: AlberBold;
     color: #fff;
@@ -791,6 +785,15 @@ button.filter-search {
     margin: 10px 0;
     display: block;
     font-weight: bold;
+}
+.offers-temp {
+    background-color: #0f0;
+}
+.offers-temp .offers-title {
+    padding-top: 5px;
+}
+.offers-perm {
+    background-color: #000;
 }
 .filter-search-title {
     font-family: AlberBold;
@@ -817,13 +820,8 @@ button.filter-search {
 
 .filter-buttons {
     width: 90%;
-    margin: 15px auto 0px;
-    position: relative;
+    margin: 10px auto 0;
 }
- 
-.filter-buttons .pull-right {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    bottom: 5px;
+.filter-buttons .menu-button {
+    padding: 0 30px;
 }
